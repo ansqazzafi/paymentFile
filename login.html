@@ -26,19 +26,16 @@
             };
 
             // Axios POST request for login
-            axios.post('http://localhost:3000/auth/login', loginData)
+            axios.post('https://healthflow-nine.vercel.app/auth/login', loginData)
                 .then(response => {
                     // Check if the response contains access and refresh tokens
                     const { accessToken, refreshToken, patient } = response.data.data;
                     localStorage.setItem('accessToken', accessToken); 
                     localStorage.setItem('refreshToken', refreshToken);
                     localStorage.setItem('patient', JSON.stringify(patient));
-                    window.location.href = "file:///C:/Users/Brackets/Desktop/healthflow/src/index.html"
+                    window.location.href = "https://spontaneous-nougat-84f428.netlify.app/index.html"
 
                     alert('Login successful!');
-                    console.log('Access Token:', accessToken);
-                    console.log('Refresh Token:', refreshToken);
-                    console.log('Patient Info:', patient);
                 })
                 .catch(error => {
                     // Handle error (invalid credentials or other issues)
